@@ -1,0 +1,26 @@
+from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession, async_sessionmaker
+from dotenv import load_dotenv
+from typing import AsyncGenerator
+from app.config import settings
+
+DATABASE_URL = (
+    settings.postgres_url
+    .replace("postgresql://", "postgresql+asyncpg://", 1)
+    .split("?")[0]  # strip query params like ?sslmode=require
+)
+
+engine = create_async_engine(
+    url=DATABASE_URL,
+    echo=True,
+)
+
+async_session_factory = async_sessionmaker(
+    bind=engine,
+    expire_on_commit=False,
+    connect_args={"ssl": "require"},
+)
+
+
+async def get_db_session() -> AsyncGenerator[AsyncSession, None]:
+    async with async_session_factory() as session:
+        yield session
