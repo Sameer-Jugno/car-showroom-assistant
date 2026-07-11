@@ -2,6 +2,9 @@ from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession, async_sess
 from dotenv import load_dotenv
 from typing import AsyncGenerator
 from app.config import settings
+from sqlalchemy.orm import declarative_base
+
+Base = declarative_base()
 
 DATABASE_URL = (
     settings.postgres_url
