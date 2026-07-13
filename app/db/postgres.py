@@ -1,5 +1,4 @@
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession, async_sessionmaker
-from dotenv import load_dotenv
 from typing import AsyncGenerator
 from app.config import settings
 from sqlalchemy.orm import declarative_base
@@ -15,12 +14,12 @@ DATABASE_URL = (
 engine = create_async_engine(
     url=DATABASE_URL,
     echo=True,
+    connect_args={"ssl": "require"},
 )
 
 async_session_factory = async_sessionmaker(
     bind=engine,
     expire_on_commit=False,
-    connect_args={"ssl": "require"},
 )
 
 
