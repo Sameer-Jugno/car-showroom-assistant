@@ -24,5 +24,8 @@ class Settings(BaseSettings):
     # Groq (LLM)
     groq_api_key: str
 
+    neo4j_uri: str
+    neo4j_username: str
+    neo4j_password: str 
 
 settings = Settings()
