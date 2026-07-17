@@ -20,4 +20,4 @@ pinecone_vector_store = PineconeVectorStore(
     pinecone_index=pinecone_index
 )
 
-print("Pinecone vector store ready:", pinecone_vector_store)
+# print("Pinecone vector store ready:", pinecone_vector_store)

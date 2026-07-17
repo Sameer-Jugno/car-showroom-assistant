@@ -8,6 +8,9 @@ from app.config import settings
 # )
 
 Settings.llm = Groq(
-    model="openai/gpt-oss-20b",
-    api_key=settings.groq_api_key,
+    # model="openai/gpt-oss-20b",
+    # model="llama-3.3-70b-versatile",
+    model="meta-llama/llama-4-scout-17b-16e-instruct",
+    api_key=settings.groq_api_key,    
+
 )
