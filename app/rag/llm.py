@@ -10,7 +10,8 @@ from app.config import settings
 Settings.llm = Groq(
     # model="openai/gpt-oss-20b",
     # model="llama-3.3-70b-versatile",
-    model="meta-llama/llama-4-scout-17b-16e-instruct",
+    # model="meta-llama/llama-4-scout-17b-16e-instruct",
+    model="openai/gpt-oss-120b",
     api_key=settings.groq_api_key,    
 
 )
