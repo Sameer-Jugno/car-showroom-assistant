@@ -1,5 +1,4 @@
 import asyncio
-import time
 import app.rag.llm
 from llama_index.core import Settings
 from llama_index.core.memory import Memory
@@ -61,15 +60,8 @@ async def ask_agent(query: str, session_id: str = "default"):
 
 
 async def main():
-    start1 = time.time()
-    response1 = await ask_agent("What's similar to the Maruti 800 AC?", session_id="test1")
-    print("First call:", response1)
-    print("Time:", time.time() - start1, "seconds")
-
-    start2 = time.time()
-    response2 = await ask_agent("What's similar to the Maruti 800 AC?", session_id="test1")
-    print("Second call:", response2)
-    print("Time:", time.time() - start2, "seconds")
+    response = await ask_agent("What's similar to the Maruti 800 AC?", session_id="test1")
+    print(response)
 
 
 if __name__ == "__main__":
