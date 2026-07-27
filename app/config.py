@@ -24,8 +24,10 @@ class Settings(BaseSettings):
     # Groq (LLM)
     groq_api_key: str
 
+    # Neo4j (AuraDB)
     neo4j_uri: str
     neo4j_username: str
-    neo4j_password: str 
+    neo4j_password: str
+
 
 settings = Settings()

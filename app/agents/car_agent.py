@@ -84,6 +84,7 @@ async def ask_agent(query: str, session_id: str = "default"):
 
     return response_text
 
+
 async def main():
     response = await ask_agent("What's similar to the Maruti 800 AC?", session_id="test1")
     print(response)

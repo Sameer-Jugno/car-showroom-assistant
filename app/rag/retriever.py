@@ -6,7 +6,7 @@ from app.rag.vector_store import vector_store
 index = VectorStoreIndex.from_vector_store(vector_store)
 
 
-def retrieve(query: str, top_k: int = 3):
+def retrieve(query: str, top_k: int = 1):
     retriever = index.as_retriever(similarity_top_k=top_k)
     return retriever.retrieve(query)
 
